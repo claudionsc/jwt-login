@@ -1,0 +1,30 @@
+{
+  "name": "jwt-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx babel-node src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudionsc/jwt-login.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claudionsc/jwt-login/issues"
+  },
+  "homepage": "https://github.com/claudionsc/jwt-login#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
