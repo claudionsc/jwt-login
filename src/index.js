@@ -41,6 +41,6 @@ app.post('/login', (req, res) => {
 
 app.get('/posts', protectRoute, (req, res) => res.send(req.decoded))
 
-database.connect.then(() => {
+database.connect().then(() => {
     app.listen(port, () => console.log('Api rodando na porta 3000'))
 })
