@@ -1,5 +1,7 @@
 import Express from 'express'
 import bodyParser from 'body-parser'
+import database from './config/database'
+import userRoute from './routes/userRoutes'
 
 import {
     verifyToken,
@@ -14,7 +16,9 @@ app.set('json spaces', 2);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(verifyToken)
 
-app.get('/', (req, res) => res.send('Olá mundo pelo Express!'))
+userRoute(app)
+
+app.get('/', (req, res) => res.send('Olá mundo pelo Express com JWT!'))
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body
@@ -35,7 +39,8 @@ app.post('/login', (req, res) => {
     })
 })
 
-app.get('/protected', protectRoute, (req, res) => res.send(req.decoded))
+app.get('/posts', protectRoute, (req, res) => res.send(req.decoded))
 
-
-app.listen(port, () => console.log('Api rodando na porta 3000'))
+database.connect.then(() => {
+    app.listen(port, () => console.log('Api rodando na porta 3000'))
+})
