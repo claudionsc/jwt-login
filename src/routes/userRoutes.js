@@ -1,9 +1,10 @@
 import PostsModel from "../models/posts";
+import { protectRoute } from '../middlewares/auth'
 
 const userRoute = (app) => {
 
     app.route('/posts/:id?')
-        .get(async (req, res) => {
+        .get( protectRoute, async (req, res) => {
             const { id } = req.params
             const query = {};
 
